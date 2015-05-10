@@ -1,0 +1,10 @@
+(function() {var implementors = {};
+implementors['kafka'] = ["<a class='stability Stable' title='Stable'></a>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='kafka/error/enum.Error.html' title='kafka::error::Error'>Error</a>","<a class='stability Stable' title='Stable'></a>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='kafka/utils/struct.OffsetMessage.html' title='kafka::utils::OffsetMessage'>OffsetMessage</a>","<a class='stability Stable' title='Stable'></a>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='kafka/utils/struct.PartitionOffset.html' title='kafka::utils::PartitionOffset'>PartitionOffset</a>","<a class='stability Stable' title='Stable'></a>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='kafka/utils/struct.TopicPartitionOffset.html' title='kafka::utils::TopicPartitionOffset'>TopicPartitionOffset</a>","<a class='stability Stable' title='Stable'></a>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='kafka/utils/struct.TopicPartitions.html' title='kafka::utils::TopicPartitions'>TopicPartitions</a>","<a class='stability Stable' title='Stable'></a>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='kafka/client/struct.KafkaClient.html' title='kafka::client::KafkaClient'>KafkaClient</a>",];
+
+            if (window.register_implementors) {
+                window.register_implementors(implementors);
+            } else {
+                window.pending_implementors = implementors;
+            }
+        
+})()

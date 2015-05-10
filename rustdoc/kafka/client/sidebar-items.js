@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["KafkaClient","Client struct. It keeps track of brokers and topic metadata"]]});

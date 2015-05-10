@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `KafkaClient` struct in crate `kafka`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, KafkaClient">
+
+    <title>kafka::client::KafkaClient - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='../index.html'>kafka</a>::<wbr><a href='index.html'>client</a></p><script>window.sidebarCurrent = {name: 'KafkaClient', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>kafka</a>::<wbr><a href='index.html'>client</a>::<wbr><a class='struct' href=''>KafkaClient</a><wbr></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-7717' href='../../src/kafka/client.rs.html#31-39'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct KafkaClient {
+    pub topic_partitions: <a class='struct' href='http://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html' title='std::collections::hash::map::HashMap'>HashMap</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>, <a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>&gt;&gt;,
+    // some fields omitted
+}</pre><div class='docblock'><p>Client struct. It keeps track of brokers and topic metadata</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1><pre id='rust-example-rendered' class='rust '>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>client</span> <span class='op'>=</span> <span class='ident'>kafka</span>::<span class='ident'>client</span>::<span class='ident'>KafkaClient</span>::<span class='ident'>new</span>(<span class='kw-2'>&amp;</span><span class='macro'>vec</span><span class='macro'>!</span>(<span class='string'>&quot;localhost:9092&quot;</span>.<span class='ident'>to_string</span>()));
+<span class='kw'>let</span> <span class='ident'>res</span> <span class='op'>=</span> <span class='ident'>client</span>.<span class='ident'>load_metadata_all</span>();
+</pre>
+
+<p>You will have to load metadata before making any other request.</p>
+</div><h2 class='fields'>Fields</h2>
+<table><tr><td id='structfield.topic_partitions'><a class='stability Unmarked' title='No stability level'></a><code>topic_partitions</code></td><td></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='struct' href='../../kafka/client/struct.KafkaClient.html' title='kafka::client::KafkaClient'>KafkaClient</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.new' class='fnname'>new</a>(hosts: &amp;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;) -&gt; <a class='struct' href='../../kafka/client/struct.KafkaClient.html' title='kafka::client::KafkaClient'>KafkaClient</a></code></h4>
+<div class='docblock'><p>Create a new instance of KafkaClient</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1><pre id='rust-example-rendered' class='rust '>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>client</span> <span class='op'>=</span> <span class='ident'>kafka</span>::<span class='ident'>client</span>::<span class='ident'>KafkaClient</span>::<span class='ident'>new</span>(<span class='kw-2'>&amp;</span><span class='macro'>vec</span><span class='macro'>!</span>(<span class='string'>&quot;localhost:9092&quot;</span>.<span class='ident'>to_string</span>()));
+</pre>
+</div><h4 id='method.load_metadata_all' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.load_metadata_all' class='fnname'>load_metadata_all</a>(&amp;mut self) -&gt; <a class='type' href='../../kafka/error/type.Result.html' title='kafka::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Resets and loads metadata for all topics.</p>
+</div><h4 id='method.load_metadata' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.load_metadata' class='fnname'>load_metadata</a>(&amp;mut self, topics: &amp;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;) -&gt; <a class='type' href='../../kafka/error/type.Result.html' title='kafka::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Reloads metadata for a list of supplied topics</p>
+
+<p>returns Result&lt;(), error::Error&gt;</p>
+</div><h4 id='method.reset_metadata' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.reset_metadata' class='fnname'>reset_metadata</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Clears metadata stored in the client. You must load metadata after this call if you want
+to use the client</p>
+</div><h4 id='method.fetch_offsets' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.fetch_offsets' class='fnname'>fetch_offsets</a>(&amp;mut self, _topics: &amp;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;)</code></h4>
+<div class='docblock'><p>Fetch offsets for a list of topics
+Not implemented as yet.</p>
+</div><h4 id='method.fetch_topic_offset' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.fetch_topic_offset' class='fnname'>fetch_topic_offset</a>(&amp;mut self, topic: &amp;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>) -&gt; <a class='type' href='../../kafka/error/type.Result.html' title='kafka::error::Result'>Result</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(<a class='struct' href='http://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>, <a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../kafka/utils/struct.PartitionOffset.html' title='kafka::utils::PartitionOffset'>PartitionOffset</a>&gt;)</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Fetch offset for a topic.
+It gets the latest offset only. Support for getting earliest will be added soon</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1><pre id='rust-example-rendered' class='rust '>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>client</span> <span class='op'>=</span> <span class='ident'>kafka</span>::<span class='ident'>client</span>::<span class='ident'>KafkaClient</span>::<span class='ident'>new</span>(<span class='kw-2'>&amp;</span><span class='macro'>vec</span><span class='macro'>!</span>(<span class='string'>&quot;localhost:9092&quot;</span>.<span class='ident'>to_string</span>()));
+<span class='kw'>let</span> <span class='ident'>res</span> <span class='op'>=</span> <span class='ident'>client</span>.<span class='ident'>load_metadata_all</span>();
+<span class='kw'>let</span> <span class='ident'>offsets</span> <span class='op'>=</span> <span class='ident'>client</span>.<span class='ident'>fetch_topic_offset</span>(<span class='kw-2'>&amp;</span><span class='string'>&quot;my-topic&quot;</span>.<span class='ident'>to_string</span>());
+</pre>
+
+<p>Returns a vector of (topic, partition offset data).
+PartitionOffset will contain parition and offset info Or Error code as returned by Kafka.</p>
+</div><h4 id='method.fetch_messages' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.fetch_messages' class='fnname'>fetch_messages</a>(&amp;mut self, topic: &amp;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>, partition: <a href='http://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>, offset: <a href='http://doc.rust-lang.org/nightly/std/primitive.i64.html'>i64</a>) -&gt; <a class='type' href='../../kafka/error/type.Result.html' title='kafka::error::Result'>Result</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../kafka/utils/struct.OffsetMessage.html' title='kafka::utils::OffsetMessage'>OffsetMessage</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Fetch messages from Kafka</p>
+
+<p>It takes a single topic, parition and offset and return a vector of messages
+or error::Error
+You can figure out the appropriate partition and offset using client&#39;s
+client.topic_partitions and client.fetch_topic_offset(topic)</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1><pre id='rust-example-rendered' class='rust '>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>client</span> <span class='op'>=</span> <span class='ident'>kafka</span>::<span class='ident'>client</span>::<span class='ident'>KafkaClient</span>::<span class='ident'>new</span>(<span class='kw-2'>&amp;</span><span class='macro'>vec</span><span class='macro'>!</span>(<span class='string'>&quot;localhost:9092&quot;</span>.<span class='ident'>to_string</span>()));
+<span class='kw'>let</span> <span class='ident'>res</span> <span class='op'>=</span> <span class='ident'>client</span>.<span class='ident'>load_metadata_all</span>();
+<span class='kw'>let</span> <span class='ident'>msgs</span> <span class='op'>=</span> <span class='ident'>client</span>.<span class='ident'>fetch_messages</span>(<span class='kw-2'>&amp;</span><span class='string'>&quot;my-topic&quot;</span>.<span class='ident'>to_string</span>(), <span class='number'>0</span>, <span class='number'>0</span>);
+</pre>
+</div><h4 id='method.send_message' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.send_message' class='fnname'>send_message</a>(&amp;mut self, topic: &amp;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>, partition: <a href='http://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>, required_acks: <a href='http://doc.rust-lang.org/nightly/std/primitive.i16.html'>i16</a>, timeout: <a href='http://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>, message: &amp;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;) -&gt; <a class='type' href='../../kafka/error/type.Result.html' title='kafka::error::Result'>Result</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../kafka/utils/struct.TopicPartitionOffset.html' title='kafka::utils::TopicPartitionOffset'>TopicPartitionOffset</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Send a message to Kafka</p>
+
+<p>You can figure out the appropriate partition and offset using client&#39;s
+client.topic_partitions and client.fetch_topic_offset(topic)</p>
+
+<p><code>required_acks</code> - indicates how many acknowledgements the servers should receive before
+responding to the request. If it is 0 the server will not send any response
+(this is the only case where the server will not reply to a request).
+If it is 1, the server will wait the data is written to the local log before sending
+a response. If it is -1 the server will block until the message is committed by all
+in sync replicas before sending a response. For any number &gt; 1 the server will block
+waiting for this number of acknowledgements to occur (but the server will never wait
+for more acknowledgements than there are in-sync replicas).</p>
+
+<p><code>timeout</code> - This provides a maximum time in milliseconds the server can await the
+receipt of the number of acknowledgements in <code>required_acks</code>
+<code>message</code> - A single message as a vector of u8s</p>
+
+<h1 id="example" class='section-header'><a
+                           href="#example">Example</a></h1><pre id='rust-example-rendered' class='rust '>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>client</span> <span class='op'>=</span> <span class='ident'>kafka</span>::<span class='ident'>client</span>::<span class='ident'>KafkaClient</span>::<span class='ident'>new</span>(<span class='kw-2'>&amp;</span><span class='macro'>vec</span><span class='macro'>!</span>(<span class='string'>&quot;localhost:9092&quot;</span>.<span class='ident'>to_string</span>()));
+<span class='kw'>let</span> <span class='ident'>res</span> <span class='op'>=</span> <span class='ident'>client</span>.<span class='ident'>load_metadata_all</span>();
+<span class='kw'>let</span> <span class='ident'>msgs</span> <span class='op'>=</span> <span class='ident'>client</span>.<span class='ident'>send_message</span>(<span class='kw-2'>&amp;</span><span class='string'>&quot;my-topic&quot;</span>.<span class='ident'>to_string</span>(), <span class='number'>0</span>, <span class='number'>1</span>,
+                 <span class='number'>100</span>, <span class='kw-2'>&amp;</span><span class='string'>&quot;b&quot;</span>.<span class='ident'>to_string</span>().<span class='ident'>into_bytes</span>());
+</pre>
+
+<p>The return value will contain topic, partition, offset and error if any
+OR error:Error</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../kafka/client/struct.KafkaClient.html' title='kafka::client::KafkaClient'>KafkaClient</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/default/trait.Default.html' title='core::default::Default'>Default</a> for <a class='struct' href='../../kafka/client/struct.KafkaClient.html' title='kafka::client::KafkaClient'>KafkaClient</a></code></h3><div class='impl-items'><h4 id='method.default' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='http://doc.rust-lang.org/nightly/core/default/trait.Default.html#method.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../../kafka/client/struct.KafkaClient.html' title='kafka::client::KafkaClient'>KafkaClient</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "kafka";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script async src="../../search-index.js"></script>
+</body>
+</html>
